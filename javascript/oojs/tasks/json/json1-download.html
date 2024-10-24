@@ -44,6 +44,31 @@
 
       // Add your code here
 
+      const cats = JSON.parse(catString);
+      let motherInfoString = ["The mother cats are called: "]
+      
+      cats.forEach((cat, index) => {
+        if(index === 0){
+          motherInfoString.push(cat.name);
+          console.log("here")
+        }
+        else if(index === cats.length - 1){
+          motherInfoString.push(" and " + cat.name+ ".");
+          console.log("there")
+        }
+        else motherInfoString.push(", " + cat.name);
+
+        cat.kittens.forEach(kitten =>  {
+          total++;
+          if(kitten.gender === "m"){
+            male++;
+            }
+        });
+      });
+
+      kittenInfo = "There are " + total + " kittens and " + male + " are male"
+      motherInfo = motherInfoString.join("")
+
       // Don't edit the code below here!
 
       para1.textContent = motherInfo;
